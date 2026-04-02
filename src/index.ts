@@ -66,6 +66,26 @@ import { UpdatePurchaseTool } from "./tools/update-purchase.tool.js";
 import { DeletePurchaseTool } from "./tools/delete-purchase.tool.js";
 import { SearchPurchasesTool } from "./tools/search-purchases.tool.js";
 
+// Payment tools (customer payments received)
+import { GetPaymentTool } from "./tools/get-payment.tool.js";
+import { SearchPaymentsTool } from "./tools/search-payments.tool.js";
+
+// Deposit tools
+import { GetDepositTool } from "./tools/get-deposit.tool.js";
+import { SearchDepositsTool } from "./tools/search-deposits.tool.js";
+
+// Transfer tools
+import { GetTransferTool } from "./tools/get-transfer.tool.js";
+import { SearchTransfersTool } from "./tools/search-transfers.tool.js";
+
+// Refund Receipt tools
+import { SearchRefundReceiptsTool } from "./tools/search-refund-receipts.tool.js";
+import { GetRefundReceiptTool } from "./tools/get-refund-receipt.tool.js";
+
+// Credit Memo tools
+import { SearchCreditMemosTool } from "./tools/search-credit-memos.tool.js";
+import { GetCreditMemoTool } from "./tools/get-credit-memo.tool.js";
+
 const main = async () => {
   // Create an MCP server
   const server = QuickbooksMCPServer.GetServer();
@@ -155,6 +175,26 @@ const main = async () => {
   RegisterTool(server, UpdatePurchaseTool);
   RegisterTool(server, DeletePurchaseTool);
   RegisterTool(server, SearchPurchasesTool);
+
+  // Add tools for customer payments
+  RegisterTool(server, GetPaymentTool);
+  RegisterTool(server, SearchPaymentsTool);
+
+  // Add tools for deposits
+  RegisterTool(server, GetDepositTool);
+  RegisterTool(server, SearchDepositsTool);
+
+  // Add tools for transfers
+  RegisterTool(server, GetTransferTool);
+  RegisterTool(server, SearchTransfersTool);
+
+  // Add tools for refund receipts
+  RegisterTool(server, GetRefundReceiptTool);
+  RegisterTool(server, SearchRefundReceiptsTool);
+
+  // Add tools for credit memos
+  RegisterTool(server, GetCreditMemoTool);
+  RegisterTool(server, SearchCreditMemosTool);
 
   // Start receiving messages on stdin and sending messages on stdout
   const transport = new StdioServerTransport();
